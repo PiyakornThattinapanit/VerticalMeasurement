@@ -1,0 +1,83 @@
+.header{
+    background-color: #E3F4F4;
+    width: 850px;
+    height: 90px;
+    flex-shrink: 0;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: #E3F4F4;
+    /* width: 850px; */
+    /* height: 150px; */
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* background-color: green; */
+}
+.add-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-grow: 1;
+    background-color: #5C5470;
+    border-radius: 22.5%;
+    margin: 10px 20px 10px 100px;
+    /* padding: 10px 0 10px 0; */
+}
+.add-btn:hover {
+    transition: 0.4s;
+    background-color: #B9B4C7;
+}
+
+.searchbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
+}
+.input{
+    margin: 10px;
+}
+
+.mode-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    border-radius: 22.5%;
+    background-color: #5C5470;
+    margin: 10px 110px 10px 10px;
+    /* padding: 10px 0 10px 0; */
+}
+.mode-btn:hover {
+    transition: 0.4s;
+    background-color: #B9B4C7;
+}
+
+.show-list{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carduser{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* background-color: #E3F4F4; */
+    /* width: 850px; */
+    height: 100px;
+    padding: 10px 10px 10px 10px;  
+}
+.card-container:hover{
+    transition: 0.5s;
+    background-color: black;
+}

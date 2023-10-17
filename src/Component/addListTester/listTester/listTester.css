@@ -1,0 +1,21 @@
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #E3F4F4;
+    /* width: 850px; */
+    height: 100px;
+    padding: 10px 10px 10px 10px; 
+}
+.btn-forward{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-left: 70px;
+}
+.btn-delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70px; 
+}

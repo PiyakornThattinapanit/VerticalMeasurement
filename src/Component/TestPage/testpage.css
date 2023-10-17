@@ -1,0 +1,18 @@
+.btn-back{
+    display: flex;
+    margin: 40px;
+    padding: 7.5px;
+    background-color: white;
+    border-radius: 20%;
+    width: fit-content;
+}
+
+.btn-start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 40px;
+    padding: 20px 5px 20px 5px;
+    background-color: #A8DF8E;
+}

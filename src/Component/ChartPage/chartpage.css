@@ -1,0 +1,8 @@
+.graph-display {
+    display: flex;
+    background-color: #E3F4F4 ;
+}
+
+.data-table{
+    display: flex;
+}

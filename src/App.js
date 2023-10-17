@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import {React, useEffect} from 'react';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Loginform from './Component/LoginPage/Loginform';
+import Startpage from './Component/StartPage/Startpage';
+import Registerpage from './Component/RegisterPage/Registerpage';
+import Homepage from './Component/HomePage/Homepage';
+import Dropdown from './Component/Dropdown/Dropdown';
+import Chartpage from './Component/ChartPage/Chartpage';
+import Testpage from './Component/TestPage/Testpage';
+import Testingpage from './Component/TestPage/TestingPage/Testingpage';
+import Userinfo from './Component/HomePage/UserInfo/Userinfo';
+
 
 function App() {
+  //useEffect
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        
+        <Route path="/" element={<Startpage/>}/>
+        <Route path="/login" element={<Loginform/>}/>
+        <Route path="/register" element={<Registerpage/>}/>
+        <Route path="/home" element={<Homepage/>}/>
+        <Route path="/home/dropdown" element={<Dropdown/>}></Route>
+        <Route path="/home/userinfo" element={<Userinfo/>}></Route>
+        <Route path="/home/graph" element={<Chartpage/>}></Route>
+        <Route path="/home/test" element={<Testpage/>}></Route>
+        <Route path="/home/test/testing" element={<Testingpage/>}></Route>
+
+        {/* <Route path="/PopupError" element={<PopupError/>}></Route> */}
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 

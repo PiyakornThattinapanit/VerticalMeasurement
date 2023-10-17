@@ -1,0 +1,44 @@
+.box-header {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-logo{
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.show-state{
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    flex-grow: 4;
+    font-size: xx-large;
+}
+
+.topic-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-user{
+    list-style-type: none;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+.nav-logo , 
+.show-state ,
+.dropdown-user {
+    padding: 10px 10px 10px 10px;
+    background: #526D82;
+}
+
+.btn-dropdown{
+    background-color: #526D82;
+}
