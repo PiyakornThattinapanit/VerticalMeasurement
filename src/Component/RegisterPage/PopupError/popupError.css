@@ -1,7 +1,7 @@
 .popup{
     position: fixed;
     top: 0;
-    left: 0;
+    left: 35%;
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.2);
@@ -21,6 +21,16 @@
 
 .popup-inner .close-btn{
     position: absolute;
-    top: 16px;
+    top: 10px;
     right: 16px;
+}
+.popup-inner .close-btn:hover{
+    border-radius: 1em;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+.gotoLogin-btn{
+    display: flex;
+    background-color: red;
 }

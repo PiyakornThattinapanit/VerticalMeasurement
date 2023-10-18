@@ -1,14 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './registerpage.css';
-import axios from 'axios'; // Import axios properly
-import { Snackbar } from '@mui/material/Snackbar';
+import axios from 'axios'; // Import axios property
+// import { Snackbar } from '@mui/material/Snackbar';
 import PopupError from './PopupError/PopupError';
-import { Button } from '@mui/material/Button';
 
 const Registerpage = () => {
 const [data, setData] = useState([]);
 const [buttonPopUp,setbuttonPopup] = useState(false);
-const [isError,setIsError] = useState(false);
+const [isEmpty,setIsEmpty] = useState(false);
+const [isMatch,setIsMatch] = useState(false);
+const [isSuccess,setIsSuccess] = useState(false);
 
 const firstnameref = useRef();
 const lastnameref = useRef();
@@ -57,7 +58,7 @@ const postData = (e) => {
 };
 
 const checkPwd = () => {
-    setIsError(true);
+    // setIsError(true);
     // console.log(firstnameref.current.value)
     // console.log(lastnameref.current.value)
     // console.log(usernameref.current.value)
@@ -66,13 +67,14 @@ const checkPwd = () => {
 
     if (passwordref.current.value === "" || confirmpasswordref.current.value === "" || usernameref.current.value === "" || firstnameref.current.value === "" || lastnameref.current.value === ""){
         console.log("Fill an empty")
-        setIsError(true);
+        setIsEmpty(true);
     }
     else if (passwordref.current.value !== confirmpasswordref.current.value) {
         console.log("Password is not match!")
-        setIsError(true);
+        setIsMatch(true);
     }
     else {
+        setIsSuccess(true);
         postData();
     }
 }
@@ -100,19 +102,25 @@ return (
                 <button className='signup-btn text-4xl' onClick={()=>{setbuttonPopup(true); checkPwd();}} >
                     Sign up
                 </button>
-                {isError && 
+                {isEmpty && 
                     <PopupError trigger={buttonPopUp} setTrigger={setbuttonPopup}>
-                        asas
+                        Fill the blank!
+                    </PopupError>
+                }
+                {isMatch && 
+                    <PopupError trigger={buttonPopUp} setTrigger={setbuttonPopup}>
+                        Password is not match! 
+                    </PopupError>
+                }
+                {isSuccess && 
+                    <PopupError trigger={buttonPopUp} setTrigger={setbuttonPopup}>
+                        Sign up successfully!
+                        {/* <a href='./login' className='gotoLogin-btn'> Go to Login page</a> */}
                     </PopupError>
                 }
 
-                    {/* <Snackbar
-                                open= {true}
-                                autoHideDuration={6000}
-                                onClose={()=>{setIsError(false)}}
-                                message="Note archived"
-                    /> */}
 
+                    {/* <Snackbar open= {true} autoHideDuration={6000} nClose={()=>{setIsError(false)}} message="Note archived" /> */}
             </div>
         </div>
     </div>
