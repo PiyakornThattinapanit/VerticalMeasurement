@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './registerpage.css';
 import axios from 'axios'; // Import axios property
-// import { Snackbar } from '@mui/material/Snackbar';
 import PopupError from './PopupError/PopupError';
+// import { Snackbar } from '@mui/material/Snackbar';
 
 const Registerpage = () => {
 const [data, setData] = useState([]);
@@ -28,7 +28,6 @@ useEffect(() => {
 
 const postData = (e) => {
     e.preventDefault();
-
     const firstnameinput = firstnameref.current.value;
     const lastnameinput = lastnameref.current.value;
     const usernameinput = usernameref.current.value;
@@ -36,11 +35,11 @@ const postData = (e) => {
     const confirmpasswordinput = confirmpasswordref.current.value;
 
     const dataRegister = {
-    fname: firstnameinput,
-    lname: lastnameinput,
-    username: usernameinput,
-    password: passwordinput,
-    cfpassword: confirmpasswordinput
+        fname: firstnameinput,
+        lname: lastnameinput,
+        username: usernameinput,
+        password: passwordinput,
+        cfpassword: confirmpasswordinput
     };
     console.log(dataRegister)
     axios
@@ -57,14 +56,7 @@ const postData = (e) => {
     });
 };
 
-const checkPwd = () => {
-    // setIsError(true);
-    // console.log(firstnameref.current.value)
-    // console.log(lastnameref.current.value)
-    // console.log(usernameref.current.value)
-    // console.log(passwordref.current.value)
-    // console.log(confirmpasswordref.current.value)
-
+const checkPwd = (e) => {
     if (passwordref.current.value === "" || confirmpasswordref.current.value === "" || usernameref.current.value === "" || firstnameref.current.value === "" || lastnameref.current.value === ""){
         console.log("Fill an empty")
         setIsEmpty(true);
@@ -74,8 +66,8 @@ const checkPwd = () => {
         setIsMatch(true);
     }
     else {
+        postData(e);
         setIsSuccess(true);
-        postData();
     }
 }
 
@@ -99,9 +91,11 @@ return (
                 <div className='input-confirm-password'>
                     Confirm password : <input placeholder='Confirm password' ref={confirmpasswordref} type='password' />
                 </div>
-                <button className='signup-btn text-4xl' onClick={()=>{setbuttonPopup(true); checkPwd();}} >
+                <button className='signup-btn text-4xl' onClick={(e)=>{setbuttonPopup(true); checkPwd(e);}} >
                     Sign up
                 </button>
+                <a href='./login' className='gotoLogin-btn'> Go to Login page</a>
+
                 {isEmpty && 
                     <PopupError trigger={buttonPopUp} setTrigger={setbuttonPopup}>
                         Fill the blank!
@@ -115,7 +109,6 @@ return (
                 {isSuccess && 
                     <PopupError trigger={buttonPopUp} setTrigger={setbuttonPopup}>
                         Sign up successfully!
-                        {/* <a href='./login' className='gotoLogin-btn'> Go to Login page</a> */}
                     </PopupError>
                 }
 
