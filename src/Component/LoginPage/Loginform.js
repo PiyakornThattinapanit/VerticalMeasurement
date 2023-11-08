@@ -15,7 +15,10 @@ const Loginform = () => {
         setTimeout(() => showPopup("hide"),3000)
     }
     function checkMiddleware(varAuth) {
-        if (varAuth.status === 200 && isAuth!==0) {
+        if (varAuth.status === 200 && isAuth === 0) {
+            navigate("/home")
+        }
+        else if(varAuth.status === 200 && isAuth!==0) {
             navigate("/home")
             console.log("Success Authentication") // ทำไงให้ไม่สามารถกดกลับได้??
             setAuth(0)
@@ -40,13 +43,13 @@ const Loginform = () => {
 
 const postform = async (e) => {
     e.preventDefault();
+    setAuth(isAuth+1);
     const userformlogin = userformloginref.current.value;
     const pwdformlogin = pwdformloginref.current.value;
     const dataLogin = {
         username: userformlogin,
         password: pwdformlogin
     };
-    setAuth(isAuth+1);
     console.log(dataLogin)
     await axios.post('http://localhost:3001/auth/login', dataLogin, {
         headers: {
@@ -70,7 +73,7 @@ return (
                 <input type="text" placeholder='username' ref={userformloginref}/>
                 <input type="password" placeholder='password' ref={pwdformloginref}/>
             <div className='login-btn' onClick={(e)=>{postform(e);}}>
-                Login <Navigate to = {'./'} />
+                Login
             </div>
             
             <div className='register-btn'>
@@ -78,8 +81,8 @@ return (
                     Register
                 </a>
             </div>
-
-            {/* <div className={popupStyle}>
+{/* 
+            <div className={popupStyle}>
                 <h3>Login Failed</h3>
                 <p>Username or password incorrect</p>
             </div> */}

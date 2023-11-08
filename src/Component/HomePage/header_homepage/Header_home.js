@@ -1,12 +1,28 @@
-import React,{useState} from 'react'
-import './header_home.css'
-import {FaCaretDown} from 'react-icons/fa'
+import React,{useState,useEffect} from 'react';
+import './header_home.css';
+import axios from 'axios';
+import {FaCaretDown} from 'react-icons/fa';
 
 const Header_home = () => {
   const [dropDown,setDropDown] = useState('');
+  const [trainerData,setTrainerData] = useState([]);
   const options = [
     {value: '', label: 'Logout'}
   ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userData = await axios.get('http://localhost:3001/auth/getuser',{withCredentials:true});
+        setTrainerData(userData.data);
+        // console.log(userData.data)
+      } catch(error) {
+          console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, [])
+  
 
   const handleOptionChange = (event) => {
     setDropDown(event.target.value);
@@ -24,7 +40,7 @@ const Header_home = () => {
           <b className='topic-page'>Home</b>
         </li>
         <li className='dropdown-user'>
-          <p>fname-lname 
+          <p> {`${trainerData.fname}` + '-' +`${trainerData.lname}`}  
             <select value={dropDown} onChange={handleOptionChange} className="btn-dropdown">
               <option value="">
                 <FaCaretDown/>
