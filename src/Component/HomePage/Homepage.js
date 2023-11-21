@@ -9,6 +9,7 @@ import { useState , handleChange } from 'react';
 import Deletedata from './DeleteData/Deletedata';
 import AddlistTester from '../addListTester/AddlistTester';
 import ListTester from '../addListTester/listTester/ListTester';
+import {Link} from 'react-router-dom';
 
 
 const Homepage = () => {
@@ -31,13 +32,13 @@ const Homepage = () => {
   const addCardUser =() => {
     const newCardUser = <div className='carduser'>
                           <Card sx={{ maxWidth: 345 }}>
-                            <a href='./userinfo'>
+                            <Link to='./userinfo'>
                               <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
                                   Firstname - Lastname
                                 </Typography>
                               </CardContent>
-                            </a>
+                            </Link>
                           </Card>
                           <div>
                             {mode ? <a href='./test' className='btn-forward'>

@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { FaForward , FaMinus } from 'react-icons/fa';
 import { useState } from 'react';
 import Deletedata from '../../HomePage/DeleteData/Deletedata';
+import {Link} from 'react-router-dom';
 
 const ListTester = ( {modeProp} ) => {
     const [mode,setMode] = useState(true);
@@ -21,13 +22,13 @@ const ListTester = ( {modeProp} ) => {
     <div>
         <div className='card-container'>
             <Card sx={{ maxWidth: 345 }}>
-                <a href='./userinfo'>
+                <Link to='./userinfo'>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
                             Firstname - Lastname
                         </Typography>
                     </CardContent>
-                </a>
+                </Link>
             </Card>
             <div>
                 {modeProp ? null  : 
