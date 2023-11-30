@@ -1,13 +1,19 @@
 import React, {useState,useRef,useEffect} from 'react';
 import './addlistTester.css';
-import { Navigate,useNavigate } from 'react-router-dom';
+import { Navigate,redirect,useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { WindowRounded } from '@mui/icons-material';
 
-const AddlistTester = ({nList , onClose}) => {  
-    const [isConfirm,setConfirm] = useState(false)
+const AddlistTester = ({onCloseInsert}) => { 
+    const [isPopupClose,setPopupClose] = useState(true);
     const fname_TesterRef = useRef();
     const lname_TesterRef = useRef();
     const navigate = useNavigate();
+
+    function refreshPage() {
+        window.location.reload(false);
+        console.log('Refresh already');
+    }
 
     const postUserTester = async (e) => {
         e.preventDefault();
@@ -25,6 +31,9 @@ const AddlistTester = ({nList , onClose}) => {
             withCredentials: true
         }).then((response) => {
             console.log(response);
+            if (response) {
+                refreshPage(); // not test yet 
+            }
         })
         .catch((err) => {
             console.log(err.response.data);
@@ -41,7 +50,7 @@ const AddlistTester = ({nList , onClose}) => {
                             Lastname:<input type="text" ref={lname_TesterRef}/>
                             <div className="footer">
                                 <button className='btn-confirm' onClick={(e)=>{postUserTester(e);}}>CONFIRM</button> :
-                                <button className='btn-cancle' onClick={()=>setConfirm(true)}>CANCEL</button>            
+                                <button className='btn-cancle' onClick={onCloseInsert}>CANCEL</button>            
                             </div>
                     </div>
             </div>

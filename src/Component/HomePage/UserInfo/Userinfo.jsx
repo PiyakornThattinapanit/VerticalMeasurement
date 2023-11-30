@@ -13,7 +13,7 @@ const Userinfo = () => {
     const [isSort,setSort] = useState(true)
 
     // console.log(isSort)
-  return (
+return (
     <div>
         <div className='header-info'>
             <Header_home/>
@@ -38,7 +38,7 @@ const Userinfo = () => {
             </a>
         </div>    
     </div>
-  )
+)
 }
 
 export default Userinfo

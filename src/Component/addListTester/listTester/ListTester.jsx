@@ -11,13 +11,16 @@ import { useState } from 'react';
 import Deletedata from '../../HomePage/DeleteData/Deletedata';
 import {Link} from 'react-router-dom';
 
-const ListTester = ( {modeProp} ) => {
+
+
+const ListTester = ( {modeProp,each} ) => {
     const [mode,setMode] = useState(true);
     const [isPopupOpen,setPopupOpen] = useState(false)
     const togglePopup=()=>{
         setPopupOpen(!isPopupOpen)
     }
-
+    console.log(each);
+    
     return (
     <div>
         <div className='card-container'>
@@ -25,7 +28,7 @@ const ListTester = ( {modeProp} ) => {
                 <Link to='./userinfo'>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Firstname - Lastname
+                            {each.fname_tester}- Lastname///
                         </Typography>
                     </CardContent>
                 </Link>
