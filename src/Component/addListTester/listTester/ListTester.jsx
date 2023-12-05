@@ -1,7 +1,6 @@
 import React from 'react'
 import './listTester.css'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
@@ -19,8 +18,14 @@ const ListTester = ( {modeProp,each} ) => {
     const togglePopup=()=>{
         setPopupOpen(!isPopupOpen)
     }
+    const tester_id = each._id;
     console.log(each);
-    
+    console.log(tester_id);
+    // ****************** Delete ********************
+    // const handleDelete = () => {
+    //     const 
+    // }
+
     return (
     <div>
         <div className='card-container'>
@@ -28,7 +33,7 @@ const ListTester = ( {modeProp,each} ) => {
                 <Link to='./userinfo'>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            {each.fname_tester}- Lastname///
+                            {each.fname_tester} - {each.lname_tester}
                         </Typography>
                     </CardContent>
                 </Link>
@@ -37,7 +42,7 @@ const ListTester = ( {modeProp,each} ) => {
                 {modeProp ? null  : 
                             <a className='btn-delete'>
                                 <FaMinus size="70px" color='#e32400' onClick={togglePopup}/> 
-                                {isPopupOpen && <Deletedata onClose={togglePopup}/>}
+                                {isPopupOpen && <Deletedata onClose={togglePopup} clickToDelete={each} ID_Tester={tester_id}/>}
                             </a>
                 }
             </div>

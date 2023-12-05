@@ -44,10 +44,6 @@ const Homepage = () => {
     const allListTester = response_Tester.data;
     console.log(allListTester);
     setArrayTester(allListTester);
-
-    // const allTesterList = await response_Tester.json();
-    // console.log(allTesterList);
-    // setArrayTester(allTesterList);
   }
   useEffect(() => {
     GetDataTester();
@@ -61,31 +57,6 @@ const Homepage = () => {
         setcardUser(prevCard => [...prevCard,newCardUser])
         console.log(mode)
   };
-  // const addCardUser =() => {
-  //   const newCardUser = <div className='carduser'>
-  //                         <Card sx={{ maxWidth: 345 }}>
-  //                           <Link to='./userinfo'>
-  //                             <CardContent>
-  //                               <Typography gutterBottom variant="h5" component="div">
-  //                                 Firstname - Lastname
-  //                               </Typography>
-  //                             </CardContent>
-  //                           </Link>
-  //                         </Card>
-  //                         <div>
-  //                           {mode ? <a href='./test' className='btn-forward'>
-  //                                     {/* <FaForward size="70px" color='#77bb41'/> */}
-  //                                   </a>  : 
-  //                                   <a className='btn-delete'>
-  //                                     <FaMinus size="70px" color='#e32400' onClick={togglePopup}/>
-  //                                     {isPopupOpen && <Deletedata onClose={togglePopup}/>}
-  //                                   </a>
-  //                           }   
-  //                         </div>
-  //                     </div>;
-  //       setcardUser(prevCard => [...prevCard,newCardUser])
-  //       console.log(mode)
-  // };
 
   return (
     <div>
@@ -110,7 +81,6 @@ const Homepage = () => {
                 // onChange={(e) => handleChange(e.target.value)}
                 />
               {/* <select></select> */}
-
             </form>
               {mode ? <button onClick={()=>{setMode(!mode);}}  className='mode-btn'>
                         <FaTrash size="20px"style={{color:"#ff6251"}}/>
