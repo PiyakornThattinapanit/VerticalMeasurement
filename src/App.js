@@ -1,5 +1,5 @@
-import {React, useEffect} from 'react';
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import {React} from 'react';
+import {BrowserRouter,Routes,Route,useParams} from 'react-router-dom'
 import Loginform from './Component/LoginPage/Loginform';
 import Startpage from './Component/StartPage/Startpage';
 import Registerpage from './Component/RegisterPage/Registerpage';
@@ -23,11 +23,9 @@ function App() {
         <Route path="/home" element={<Homepage/>}/>
         <Route path="/home/dropdown" element={<Dropdown/>}></Route>
         <Route path="/home/userinfo" element={<Userinfo/>}></Route>
-        <Route path="/home/graph" element={<Chartpage/>}></Route>
         <Route path="/home/test" element={<Testpage/>}></Route>
         <Route path="/home/test/testing" element={<Testingpage/>}></Route>
-
-        {/* <Route path="/PopupError" element={<PopupError/>}></Route> */}
+        {/* <Route path="/home/graph" element={<Chartpage/>}></Route> */}
 
       </Routes>
     </BrowserRouter>

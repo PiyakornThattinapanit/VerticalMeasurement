@@ -16,6 +16,7 @@ const lastnameref = useRef();
 const usernameref = useRef();
 const passwordref = useRef();
 const confirmpasswordref = useRef();
+const macaddressref = useRef();
 
 useEffect(() => {
     axios.get('http://localhost:3000/Register', {crossdomain: true})
@@ -33,13 +34,15 @@ const postData = (e) => {
     const usernameinput = usernameref.current.value;
     const passwordinput = passwordref.current.value;
     const confirmpasswordinput = confirmpasswordref.current.value;
+    const macaddressinput = macaddressref.current.value; 
 
     const dataRegister = {
         fname: firstnameinput,
         lname: lastnameinput,
         username: usernameinput,
         password: passwordinput,
-        cfpassword: confirmpasswordinput
+        cfpassword: confirmpasswordinput,
+        macaddress: macaddressinput
     };
     console.log(dataRegister)
     axios
@@ -90,6 +93,9 @@ return (
                 </div>
                 <div className='input-confirm-password'>
                     Confirm password : <input placeholder='Confirm password' ref={confirmpasswordref} type='password' />
+                </div>
+                <div className='input-macaddress'>
+                    Mac Address : <input placeholder='mac address' ref={macaddressref} type='password' />
                 </div>
                 <button className='signup-btn text-4xl' onClick={(e)=>{setbuttonPopup(true); checkPwd(e);}} >
                     Sign up

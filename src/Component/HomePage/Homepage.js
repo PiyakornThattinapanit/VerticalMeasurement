@@ -31,13 +31,7 @@ const Homepage = () => {
     setPopupOpen_Insert(!isPopupOpen_Insert);
     console.log(isPopupOpen_Insert);
   }
-  // const amountAdd=()=>{
-  //   setAdd(isAdd+1)
-  //   if (isAdd !==  0) {
-  //     console.log(isAdd);
-  //     return 
-  //   }else return <div></div>;
-  // }
+  
   async function GetDataTester() {
     const response_Tester = await axios.get('http://localhost:3001/addlist/getallusertester',{withCredentials:true});
     console.log('Response Tester:',response_Tester);
@@ -49,15 +43,6 @@ const Homepage = () => {
     GetDataTester();
   }, [])
   
-
-  const addCardUser =() => {
-    const newCardUser = <div className='carduser'>
-                          <ListTester/>
-                      </div>;
-        setcardUser(prevCard => [...prevCard,newCardUser])
-        console.log(mode)
-  };
-
   return (
     <div>
       {/* Test Component */}
@@ -92,10 +77,9 @@ const Homepage = () => {
           </div>
            {/* ******************* Fix it ******************* */}
           <div className='show-list'> 
-                {/* {isAdd > 0 ? <AddlistTester nList={isAdd}/> : <p1>No list</p1>} */}
             {toArrayTester.map(eachTester => 
               <ListTester modeProp={mode} 
-              each={eachTester} {...eachTester}
+                each={eachTester} {...eachTester}
               />
             )}
           </div>

@@ -8,35 +8,50 @@ import Typography from '@mui/material/Typography';
 import { FaForward , FaMinus } from 'react-icons/fa';
 import { useState } from 'react';
 import Deletedata from '../../HomePage/DeleteData/Deletedata';
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
+import Userinfo from '../../HomePage/UserInfo/Userinfo';
 
 
 
 const ListTester = ( {modeProp,each} ) => {
+    const navigate = useNavigate();
     const [mode,setMode] = useState(true);
     const [isPopupOpen,setPopupOpen] = useState(false)
     const togglePopup=()=>{
         setPopupOpen(!isPopupOpen)
     }
     const tester_id = each._id;
+    const serial_num = each.serial;
     console.log(each);
     console.log(tester_id);
-    // ****************** Delete ********************
-    // const handleDelete = () => {
-    //     const 
-    // }
+    console.log(serial_num);
+
+    const handleTranferData = () => {
+        navigate('./userinfo',{state: {Id: tester_id, serialnum: serial_num}});
+    }
 
     return (
     <div>
         <div className='card-container'>
             <Card sx={{ maxWidth: 345 }}>
-                <Link to='./userinfo'>
+                <div  onClick={handleTranferData}>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
                             {each.fname_tester} - {each.lname_tester}
                         </Typography>
                     </CardContent>
-                </Link>
+                </div>
+                {/* <Link to={{
+                    pathname:'./userinfo',
+                    state: {tester_id}
+                }}
+                >
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {each.fname_tester} - {each.lname_tester}
+                        </Typography>
+                    </CardContent>
+                </Link> */}
             </Card>
             <div>
                 {modeProp ? null  : 
