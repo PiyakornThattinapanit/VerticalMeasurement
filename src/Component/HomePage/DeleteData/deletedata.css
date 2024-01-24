@@ -1,10 +1,10 @@
-/* Popup Styles */
+Popup Styles
 .popup-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 190;
+    left: 100;
+    width: 25%;
+    height: 25%;
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
@@ -12,18 +12,39 @@
 }
 
 .popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left:20px;
+    margin-top: 70px;
     background-color: white;
     border-radius: 8px;
-    padding: 20px;
+    padding: 0px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    width: 50%;
 }
 
+.topic-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
 .close-button {
     background-color: #ff6347;
     color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.accept-button {
+    background-color: #92ff60;
+    color: rgb(19, 17, 17);
     border: none;
     padding: 8px 16px;
     border-radius: 4px;

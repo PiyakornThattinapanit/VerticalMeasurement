@@ -41,17 +41,6 @@ const ListTester = ( {modeProp,each} ) => {
                         </Typography>
                     </CardContent>
                 </div>
-                {/* <Link to={{
-                    pathname:'./userinfo',
-                    state: {tester_id}
-                }}
-                >
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {each.fname_tester} - {each.lname_tester}
-                        </Typography>
-                    </CardContent>
-                </Link> */}
             </Card>
             <div>
                 {modeProp ? null  : 
@@ -62,7 +51,6 @@ const ListTester = ( {modeProp,each} ) => {
                 }
             </div>
         </div> 
-            {/* add another card user */}
     </div>
     )
 }

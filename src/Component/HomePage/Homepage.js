@@ -15,32 +15,36 @@ import axios from 'axios';
 
 const Homepage = () => {
   const [mode,setMode] = useState(true);
-  const [isPopupOpen,setPopupOpen] = useState(false)
+  // const [isPopupOpen,setPopupOpen] = useState(false)
   const [isPopupOpen_Insert,setPopupOpen_Insert] = useState(false);
   const [cardUser,setcardUser] = useState([])
   const navigate = useNavigate();
   const [toArrayTester,setArrayTester] = useState([]);
+  const [inputText,setinputText] = useState("");
   
-  // let [isAdd,setAdd] = useState(0);
   
-  const togglePopup=()=>{
-    setPopupOpen(true)
-    console.log(isPopupOpen);
-  }
   const togglePopupInsert=()=>{
     setPopupOpen_Insert(!isPopupOpen_Insert);
     console.log(isPopupOpen_Insert);
   }
   
-  async function GetDataTester() {
+  async function GetDataTester () {
     const response_Tester = await axios.get('http://localhost:3001/addlist/getallusertester',{withCredentials:true});
-    console.log('Response Tester:',response_Tester);
-    const allListTester = response_Tester.data;
-    console.log(allListTester);
-    setArrayTester(allListTester);
+      console.log('Response Tester:',response_Tester);
+      const allListTester = response_Tester.data;
+      console.log(allListTester);
+      setArrayTester(allListTester);
   }
+  // const filteredData = allListTester.filter((item) =>
+  // item.toLowerCase().includes(allListTester.fname_tester.toLowerCase())
+  // )
+  // const handleChange=(e)=> {
+  //   setinputText(e.tarket.value);
+  //   console.log(inputText);
+  // }
   useEffect(() => {
     GetDataTester();
+    // response_Tester();
   }, [])
   
   return (
@@ -58,15 +62,21 @@ const Homepage = () => {
               {isPopupOpen_Insert && <AddlistTester onCloseInsert={togglePopupInsert}/>}
 
 
-            <form className='searchbar' action="">
+            {/* <form className='searchbar' action="">
               Search: 
-              <input className="input" type="text"
+              <input 
+                className="input" 
+                type="text"
                 placeholder='name'
-                value=""
-                // onChange={(e) => handleChange(e.target.value)}
+                value={inputText}
+                onChange={(e) => handleChange(e.target.value)}
                 />
-              {/* <select></select> */}
             </form>
+            <ul>
+              {filteredData.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul> */}
               {mode ? <button onClick={()=>{setMode(!mode);}}  className='mode-btn'>
                         <FaTrash size="20px"style={{color:"#ff6251"}}/>
                       </button> : 

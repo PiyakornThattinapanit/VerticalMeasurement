@@ -19,16 +19,15 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    gap: 150px;
     /* background-color: green; */
 }
 .add-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    padding: 20px;
     background-color: #5C5470;
     border-radius: 22.5%;
-    margin: 10px 20px 10px 100px;
+    margin: 10px 20px 10px 0px;
     /* padding: 10px 0 10px 0; */
 }
 .add-btn:hover {
@@ -47,14 +46,11 @@
 }
 
 .mode-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+    padding: 20px;
+    /* flex-grow: 1; */
     border-radius: 22.5%;
     background-color: #5C5470;
-    margin: 10px 110px 10px 10px;
-    /* padding: 10px 0 10px 0; */
+    margin: 10px 0px 10px 10px;
 }
 .mode-btn:hover {
     transition: 0.4s;

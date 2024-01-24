@@ -4,7 +4,8 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
+import { Stack } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Typography from '@mui/material/Typography';
 import axios from 'axios'; 
 import { useLocation,useNavigate } from 'react-router-dom';
@@ -18,7 +19,7 @@ const Userinfo = () => {
     console.log(testerId);
     console.log(macUser);
 
-    async function getmacUserAndSendID() {
+    async function postmacUserAndSendID() {
         navigate('/home/test');
         const setDataForESP = {
             macaddress: macUser, // mac address user
@@ -45,9 +46,17 @@ return (
             <Header_home/>
         </div>
         <div className='btn-command'>
-            <Button onClick={getmacUserAndSendID} className='btn-test'>
+        {/* <Stack direction="row" spacing={2}> */}
+        <LoadingButton
+            loading
+            loadingPosition="end"
+            // variant="outlined"
+        >
+            <button onClick={postmacUserAndSendID} className='btn-test'>
                 TEST
-            </Button>
+            </button>
+        </LoadingButton>
+        {/* </Stack> */}
         </div>
         <div className='carduser'>
             <Card sx={{ maxWidth: 345 }} >
@@ -57,7 +66,7 @@ return (
                     </Typography>
                 </CardContent>
             </Card>
-        </div>    
+        </div> 
     </div>
 )
 }

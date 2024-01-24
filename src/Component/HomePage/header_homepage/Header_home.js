@@ -17,7 +17,7 @@ const Header_home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setState(['HOME']);
+        setState(['']);
         const userData = await axios.get('http://localhost:3001/auth/getuser',{withCredentials:true});
         setTrainerData(userData.data);
         // if (userData.status !== 200){

@@ -17,10 +17,10 @@ const Deletedata = ({onClose,clickToDelete,ID_Tester}) => {
   return (
     <div className='popup'>
         <div className="popup-content">
-            <p>Delete a data?</p>
-            <button onClick={deleteThisTester}>Accept</button>
+            <p className='topic-popup'>Delete a data?</p>
+            <button className='accept-button' onClick={deleteThisTester}>Accept</button>
+            <button className='close-button' onClick={onClose}>Decline</button>
         </div>
-            <button onClick={onClose}>Decline</button>
     </div>
   )
 }
